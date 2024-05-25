@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.Home{
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #294056, #a65961);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 24px;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 80px;
+    z-index: 99;
+}
+header nav a{
+    margin-left: 80px;
+    color: white;
+    font-size: 26px;
+    transition: .3s;
+}
+header nav .active,
+header nav a:hover{
+    color: #ff495b;
+}
+.Home h1{
+    position: absolute;
+    color: white;
+    font-size: 140px;
+    z-index: 99;
+}
+.Home img{
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+}
+.layer{
+    bottom: 0;
+}
+.moon{
+    transform-origin: 50% 100%;
+}
+.About{
+    min-height: 100vh;
+    background-color: #3a1820;
+    color: white;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+}
+.About h1{
+    font-size: 50px;
+}
+.About p{
+    font-size: 15px;
+}
