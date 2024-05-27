@@ -71,3 +71,54 @@ header nav a:hover{
 .About p{
     font-size: 15px;
 }
+
+.Services{
+    min-height: 100vh;
+    background-color: #3a1820;
+    color: white;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+}
+.Services h1{
+    font-size: 50px;
+}
+.Services p{
+    font-size: 15px;
+}
+
+.Contact{
+    min-height: 100vh;
+    background-color: #3a1820;
+    color: white;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+}
+.Contact h1{
+    font-size: 50px;
+}
+.Contact p{
+    font-size: 15px;
+}
+
+.Login{
+    min-height: 100vh;
+    background-color: #3a1820;
+    color: white;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+}
+.Login h1{
+    font-size: 50px;
+}
+.Login p{
+    font-size: 15px;
+}
