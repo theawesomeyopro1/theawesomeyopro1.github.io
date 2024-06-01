@@ -122,3 +122,16 @@ header nav a:hover{
 .Login p{
     font-size: 15px;
 }
+
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1{
+  position: top;
+  top: 18px;
+  left: 10px;
+}
