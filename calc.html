@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="icon" href="calculator.ico" type="assets/calculator.ico"/>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            padding: 20px;
+        }
+        .display {
+            width: 100%;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            font-size: 2em;
+            text-align: right;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .button {
+            height: 50px;
+            background-color: #444;
+            border: none;
+            font-size: 1.5em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: #fff;
+        }
+        .button:active {
+            background-color: #555;
+        }
+        .button.operation {
+            background-color: #ff8c00;
+        }
+        .button.clear {
+            background-color: #ff4c4c;
+        }
+        .button.equal {
+            background-color: #1e90ff;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled value="0">
+        <div class="buttons">
+            <input type="button" class="button operation" value="+" onclick="chooseOperation('+')">
+            <input type="button" class="button" value="7" onclick="appendNumber('7')">
+            <input type="button" class="button" value="8" onclick="appendNumber('8')">
+            <input type="button" class="button" value="9" onclick="appendNumber('9')">
+            <input type="button" class="button operation" value="÷" onclick="chooseOperation('÷')">
+            <input type="button" class="button" value="4" onclick="appendNumber('4')">
+            <input type="button" class="button" value="5" onclick="appendNumber('5')">
+            <input type="button" class="button" value="6" onclick="appendNumber('6')">
+            <input type="button" class="button operation" value="×" onclick="chooseOperation('×')">
+            <input type="button" class="button" value="1" onclick="appendNumber('1')">
+            <input type="button" class="button" value="2" onclick="appendNumber('2')">
+            <input type="button" class="button" value="3" onclick="appendNumber('3')">
+            <input type="button" class="button operation" value="-" onclick="chooseOperation('-')">
+            <input type="button" class="button" value="0" onclick="appendNumber('0')">
+            <input type="button" class="button" value="." onclick="appendNumber('.')">
+            <input type="button" class="button equal" value="=" onclick="compute()">
+            <input type="button" class="button clear" value="C" onclick="clearDisplay()">
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+        let currentOperand = '';
+        let previousOperand = '';
+        let operation = undefined;
+
+        function clearDisplay() {
+            currentOperand = '';
+            previousOperand = '';
+            operation = undefined;
+            display.value = '0';
+        }
+
+        function appendNumber(number) {
+            if (number === '.' && currentOperand.includes('.')) return;
+            currentOperand = currentOperand.toString() + number.toString();
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            display.value = `${previousOperand} ${operation || ''} ${currentOperand}`;
+        }
+
+        function chooseOperation(op) {
+            if (currentOperand === '') return;
+            if (previousOperand !== '') {
+                compute();
+            }
+            operation = op;
+            previousOperand = currentOperand;
+            currentOperand = '';
+            updateDisplay();
+        }
+
+        function compute() {
+            let computation;
+            const prev = parseFloat(previousOperand);
+            const current = parseFloat(currentOperand);
+            if (isNaN(prev) || isNaN(current)) return;
+            switch (operation) {
+                case '+':
+                    computation = prev + current;
+                    break;
+                case '-':
+                    computation = prev - current;
+                    break;
+                case '×':
+                    computation = prev * current;
+                    break;
+                case '÷':
+                    computation = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            currentOperand = computation;
+            operation = undefined;
+            previousOperand = '';
+            updateDisplay();
+        }
+
+        clearDisplay();
+    </script>
+</body>
+</html>
