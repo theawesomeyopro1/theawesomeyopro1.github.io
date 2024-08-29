@@ -1,0 +1,63 @@
+/* login.css */
+
+body {
+    background-image: url('account_signup.gif'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    font-family: Arial, sans-serif; /* Example font */
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background for main content */
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  section {
+    text-align: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
