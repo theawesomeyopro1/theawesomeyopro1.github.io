@@ -1,0 +1,76 @@
+        /* Basic CSS for styling the page */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-image: url(call.jpg);
+            background-size: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 12.5vh; /* Set to 1/8th of the viewport height (12.5% = 1/8) */
+            background-image: linear-gradient(to right, black, white, black); /* Gradient background */
+            color: #000000; /* Set text color to gold */
+        }
+
+        h1 {
+            font-size: 3rem;
+            opacity: 0; /* Start fully transparent */
+            transform: translateY(-20px); /* Start slightly above the center */
+            animation: fadeInCenter 2s ease-out forwards; /* Apply animation */
+        }
+
+        @keyframes fadeInCenter {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #08497e;
+        }
+
+        .project-description {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .project-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
