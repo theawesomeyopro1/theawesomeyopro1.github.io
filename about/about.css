@@ -1,0 +1,95 @@
+ /* Styles for the About Me page */
+ body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 20px 0;
+    border: 5px solid #4CAF50;
+}
+
+.intro {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-top: 40px;
+}
+
+.skills, .hobbies {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.skill-item, .hobby-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.show-more-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.show-more-btn:hover {
+    background-color: #45a049;
+}
+
+.more-info {
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+    text-align: left;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
