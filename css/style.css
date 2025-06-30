@@ -1,43 +1,46 @@
+.about-me {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 30px;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid #00ffff33;
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 20px #00ffff20;
+}
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0f0f0f;
-  color: #f1f1f1;
+.about-me img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #00ffff88;
+  margin-bottom: 16px;
 }
-.top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #1f1f1f;
-  padding: 10px 20px;
-  border-bottom: 2px solid #00ffff;
-}
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
+
+.about-me h1 {
+  margin: 10px 0 5px;
+  font-size: 1.8rem;
   color: #00ffff;
 }
-.tabs {
-  display: flex;
-  gap: 10px;
+
+.about-me p {
+  margin: 0 0 10px;
+  font-style: italic;
+  color: #ccc;
 }
-.tab-button {
-  background: none;
-  border: none;
-  padding: 10px 15px;
-  color: #f1f1f1;
-  font-size: 1em;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
+
+.about-me a {
+  display: inline-block;
+  padding: 8px 16px;
+  color: #00ffff;
+  border: 1px solid #00ffff88;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
-.tab-button.active {
-  border-bottom: 2px solid #00ffff;
-}
-.tab-content {
-  display: none;
-  padding: 20px;
-}
-.tab-content.active {
-  display: block;
+
+.about-me a:hover {
+  background: #00ffff33;
 }

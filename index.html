@@ -7,23 +7,39 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="top-bar">
+
+  <!-- About Me Section -->
+  <section class="about-me">
+    <img id="avatar" alt="GitHub Avatar" />
+    <h1 id="name">Loading...</h1>
+    <p id="bio">Loading bio...</p>
+    <a id="github-link" target="_blank">View GitHub</a>
+  </section>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-bar">
     <div class="logo">Ronny</div>
-    <div class="tabs">
+    <nav class="tabs">
       <button class="tab-button active" onclick="switchTab('web')">Web Projects</button>
       <button class="tab-button" onclick="switchTab('other')">Other Projects</button>
-    </div>
-  </div>
-  <div class="content">
-    <div id="web" class="tab-content active">
+    </nav>
+  </header>
+
+  <!-- Content Area -->
+  <main class="content">
+    <section id="web" class="tab-content active">
       <h2>Web Projects</h2>
       <p>List of web projects will go here...</p>
-    </div>
-    <div id="other" class="tab-content">
+    </section>
+
+    <section id="other" class="tab-content">
       <h2>Other Projects</h2>
       <p>Other types of projects will go here...</p>
-    </div>
-  </div>
+    </section>
+  </main>
+
+  <!-- JS Scripts -->
   <script src="js/script.js"></script>
+
 </body>
 </html>
