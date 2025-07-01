@@ -1,46 +1,53 @@
-.about-me {
-  max-width: 600px;
-  margin: 80px auto;
-  padding: 30px;
-  background: rgba(20, 20, 20, 0.6);
-  backdrop-filter: blur(8px);
-  border: 1px solid #00ffff33;
-  border-radius: 16px;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 0 20px #00ffff20;
-}
+    :root {
+      --bar-radius: 0.7rem;
+      --active-color: #00ffff; /* Cyan */
+      --inactive-bg: rgba(0, 255, 255, 0.1);
+      --inactive-border: rgba(0, 255, 255, 0.2);
+    }
 
-.about-me img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #00ffff88;
-  margin-bottom: 16px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.about-me h1 {
-  margin: 10px 0 5px;
-  font-size: 1.8rem;
-  color: #00ffff;
-}
+    body {
+      font-family: JetBrains Mono, monospace;
+      color: #00ffff;
+      background: url("end_4.png") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      overflow: hidden;
+    }
 
-.about-me p {
-  margin: 0 0 10px;
-  font-style: italic;
-  color: #ccc;
-}
+    .top-bar {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      padding: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      border-radius: var(--bar-radius);
+      box-shadow: 0 0 12px #00ffff55;
+      z-index: 1000;
+    }
 
-.about-me a {
-  display: inline-block;
-  padding: 8px 16px;
-  color: #00ffff;
-  border: 1px solid #00ffff88;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
+    .top-box {
+      background: var(--inactive-bg);
+      border: 1px solid var(--inactive-border);
+      padding: 5px 12px;
+      border-radius: var(--bar-radius);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
 
-.about-me a:hover {
-  background: #00ffff33;
-}
+    .top-box.active {
+      background: var(--active-color);
+      color: black;
+      font-weight: bold;
+      box-shadow: 0 0 10px var(--active-color);
+    }

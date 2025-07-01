@@ -2,44 +2,307 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ronny's Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ronny's HyprBar</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: JetBrains Mono, monospace;
+      background: url("css/end_4.png") no-repeat center center fixed;
+      background-size: cover;
+      color: #00ffff;
+    }
+
+.top-bar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: flex-start; /* repo buttons + time side by side */
+  align-items: center;
+  width: auto;       /* or set fixed width if you want */
+  max-width: 90vw;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border-radius: 0.7rem;
+  box-shadow: 0 0 12px #00ffff55;
+  z-index: 1000;
+  box-sizing: border-box;
+  gap: 60px;        /* your big gap */
+}
+
+    .repo-scroll-wrapper {
+      width: 300px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      min-width: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #00ffff55 transparent;
+      flex-shrink: 0;
+      background: rgba(0, 255, 255, 0.05);
+      border-radius: 0.7rem 0 0 0.7rem;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .repo-scroll {
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: 8px;
+      cursor: grab;
+      user-select: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .repo-scroll::-webkit-scrollbar {
+      height: 6px;
+      display: block;
+    }
+
+    .repo-scroll::-webkit-scrollbar-thumb {
+      background-color: #00ffff55;
+      border-radius: 3px;
+    }
+
+    .top-box {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 0.7rem;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      color: #00ffff;
+      white-space: nowrap;
+      user-select: none;
+      line-height: 1;
+      box-sizing: border-box;
+    }
+
+    .top-box.active {
+      background: #00ffff;
+      color: black;
+      font-weight: bold;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .time-container {
+      flex-shrink: 0;
+      background: rgba(0, 255, 255, 0.05);
+      border-radius: 0 0.7rem 0.7rem 0;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .time-box {
+      white-space: nowrap;
+      font-weight: bold;
+      user-select: none;
+    }
+
+    main {
+      padding-top: 70px;
+    }
+
+    .page-content {
+      display: none;
+    }
+
+    .page-content.active {
+      display: block;
+    }
+
+    .wm-window {
+      width: 98vw;
+      max-width: 1800px;
+      min-width: 300px;
+      margin: 40px auto;
+      padding-left: 12px;
+      padding-right: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #00ffff55;
+      border-radius: 0.7rem;
+      box-shadow: 0 0 15px #00ffff33;
+      backdrop-filter: blur(10px);
+      box-sizing: border-box;
+    }
+
+    .wm-header {
+      background: #00ffff33;
+      padding: 8px 12px;
+      font-weight: bold;
+      border-bottom: 1px solid #00ffff55;
+      border-top-left-radius: 0.7rem;
+      border-top-right-radius: 0.7rem;
+      box-sizing: border-box;
+    }
+
+    .wm-body {
+      padding: 2rem;
+      color: white;
+      overflow-x: auto;
+      font-size: 1rem;
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+
+    @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .repo-scroll-wrapper {
+        width: 100%;
+        border-radius: 0.7rem;
+        border-right: none;
+      }
+
+        .time-container {
+          flex-shrink: 0;
+          background: rgba(0, 255, 255, 0.05);
+          border-radius: 0 0.7rem 0.7rem 0;
+          border: 1px solid rgba(0, 255, 255, 0.2);
+          padding: 0 12px;
+          display: flex;
+          align-items: center;
+
+          margin-left: 6px; /* this pushes it away a bit */
+      }
+      .wm-body {
+        font-size: 0.9rem;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- About Me Section -->
-  <section class="about-me">
-    <img id="avatar" alt="GitHub Avatar" />
-    <h1 id="name">Loading...</h1>
-    <p id="bio">Loading bio...</p>
-    <a id="github-link" target="_blank">View GitHub</a>
-  </section>
-
-  <!-- Top Navigation Bar -->
   <header class="top-bar">
-    <div class="logo">Ronny</div>
-    <nav class="tabs">
-      <button class="tab-button active" onclick="switchTab('web')">Web Projects</button>
-      <button class="tab-button" onclick="switchTab('other')">Other Projects</button>
-    </nav>
+    <div class="repo-scroll-wrapper">
+      <div class="repo-scroll"></div>
+    </div>
+    <div class="time-container">
+      <div class="time-box top-box">--:--:-- --</div>
+    </div>
   </header>
 
-  <!-- Content Area -->
-  <main class="content">
-    <section id="web" class="tab-content active">
-      <h2>Web Projects</h2>
-      <p>List of web projects will go here...</p>
-    </section>
+  <main id="main-content"></main>
 
-    <section id="other" class="tab-content">
-      <h2>Other Projects</h2>
-      <p>Other types of projects will go here...</p>
-    </section>
-  </main>
+  <script>
+    const username = 'theawesomeyopro1';
+    const repoScroll = document.querySelector('.repo-scroll');
+    const mainContent = document.getElementById('main-content');
+    const timeBox = document.querySelector('.time-box');
 
-  <!-- JS Scripts -->
-  <script src="js/script.js"></script>
+    function updateTime() {
+      const now = new Date();
+      let hours = now.getHours() % 12 || 12;
+      let minutes = String(now.getMinutes()).padStart(2, '0');
+      let seconds = String(now.getSeconds()).padStart(2, '0');
+      let ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+      let day = String(now.getDate()).padStart(2, '0');
+      let month = String(now.getMonth() + 1).padStart(2, '0');
+      timeBox.textContent = `${hours}:${minutes}:${seconds} ${ampm} - ${day}/${month}`;
+    }
 
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    function createRepoPage(repoName) {
+      const pageDiv = document.createElement('div');
+      pageDiv.id = `content-${repoName}`;
+      pageDiv.className = 'page-content';
+      pageDiv.innerHTML = `
+        <div class="wm-window">
+          <div class="wm-header">${repoName}</div>
+          <div class="wm-body" id="readme-${repoName}">Loading README...</div>
+        </div>
+      `;
+      mainContent.appendChild(pageDiv);
+    }
+
+    function switchPage(repoName) {
+      document.querySelectorAll('.top-box').forEach(el => {
+        if (!el.classList.contains('time-box')) el.classList.remove('active');
+      });
+      const btn = document.getElementById(`btn-${repoName}`);
+      if (btn) btn.classList.add('active');
+
+      document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+      const page = document.getElementById(`content-${repoName}`);
+      if (page) page.classList.add('active');
+
+      const readmeDiv = document.getElementById(`readme-${repoName}`);
+      if (readmeDiv && !readmeDiv.dataset.loaded) {
+        loadReadme(repoName);
+      }
+    }
+
+    async function loadReadme(repoName) {
+      const readmeDiv = document.getElementById(`readme-${repoName}`);
+      const rawUrl = `https://raw.githubusercontent.com/${username}/${repoName}/main/README.md`;
+      try {
+        const res = await fetch(rawUrl);
+        if (!res.ok) throw new Error('No README found');
+        const md = await res.text();
+        readmeDiv.innerHTML = marked.parse(md);
+      } catch (e) {
+        readmeDiv.textContent = 'README.md not found.';
+      }
+      readmeDiv.dataset.loaded = 'true';
+    }
+
+    async function buildUI() {
+      try {
+        const res = await fetch(`https://api.github.com/users/${username}/repos`);
+        if (!res.ok) throw new Error('Failed to fetch repos');
+        const repos = await res.json();
+
+        if (repos.length === 0) {
+          mainContent.innerHTML = '<p>No repositories found.</p>';
+          return;
+        }
+
+        repos.forEach((repo, index) => {
+          const btn = document.createElement('div');
+          btn.className = 'top-box';
+          btn.id = `btn-${repo.name}`;
+          btn.textContent = `${index + 1}`;
+          btn.title = repo.name;
+          btn.onclick = () => switchPage(repo.name);
+          repoScroll.appendChild(btn);
+          createRepoPage(repo.name);
+        });
+
+        if (repos.length > 0) {
+          switchPage(repos[0].name);
+        }
+      } catch (e) {
+        mainContent.innerHTML = '<p>Failed to load repositories.</p>';
+        console.error(e);
+      }
+    }
+
+    buildUI();
+
+    repoScroll.addEventListener('wheel', (e) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        repoScroll.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+  </script>
 </body>
 </html>
