@@ -1,5 +1,5 @@
 
-Ronny's Portfolio
+My Portfolio
 =================
 
 A minimal portfolio website styled like end-4's Hyprland setup.
